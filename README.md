@@ -1,12 +1,12 @@
 # Profile Picture Uploader
 
-Simple porfile picture uploader made by pure PHP & JavaScript
+Simple profile picture uploader made by pure PHP & JavaScript
 
 ## Features
 
-- Generate random file name 🔀
-- Show live preview of picture & its names 🖼
-- Create "Uploads" directory automatically ♻
+- Generate a random file name 🔀
+- Create an "Uploads" directory automatically ♻
+- Show a live preview of the picture and its name 🖼
 
 ## Author
 
