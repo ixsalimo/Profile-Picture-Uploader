@@ -1,5 +1,5 @@
 <?php
-if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+if ( $_SERVER["REQUEST_METHOD"] === "POST" ) {
     if ( ! empty( $_FILES ) ) {
         $file = $_FILES["file"];
 
@@ -8,23 +8,23 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
 
         $destinationDirectory = "$DOCROOT/Uploads";
 
-        // Create as uploads directory if it doesn't exist
-        if ( ! file_exists( "$destinationDirectory" ) ) mkdir( "$destinationDirectory" );
+        // Create an uploads directory if it doesn't exist
+        if ( ! file_exists( $destinationDirectory ) ) mkdir( $destinationDirectory );
 
         // Generate a random file name
         $newFileName = uniqid() . "_" . time();
 
-        // Extract file extention
+        // Extract file extension
         $explodedFileName = explode( '.' , $file["name"] );
-        $fileExtention = end( $explodedFileName );
+        $fileExtension = end( $explodedFileName );
 
-        $finalPath = "$destinationDirectory/$newFileName.$fileExtention";
+        $finalPath = "$destinationDirectory/$newFileName.$fileExtension";
 
-        // Move file from temporary path to destination
+        // Move the file from the temporary path to the destination
         if ( move_uploaded_file( $file["tmp_name"] , $finalPath ) ) {
             echo "<mark>Profile uploaded successfully ✔️</mark>";
         } else {
-            echo "<mark>Profile does not uploded ❌</mark>";
+            echo "<mark>Profile does not uploaded ❌</mark>";
         }
         die( "<hr><a href='/'>Upload new profile</a>" );
     }
